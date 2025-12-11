@@ -621,14 +621,6 @@
                         <li><strong>大型專案統籌：</strong>管理「數位服務據點」專案，與 <span class="highlight-number">81位</span> 據點成員協作，達成 <span class="highlight-number">100%</span> 結案率。</li>
                         <li><strong>高滿意度：</strong>活動滿意度高達 <span class="highlight-number">97%</span>，並製作 5 份數據分析報告供決策使用。</li>
                         <li><strong>溝通協調：</strong>執行 13 場訪視活動，並成功透過法務協作解決合約歧異。</li>
-						<div class="gallery-wrapper">
-						<button class="toggle-gallery-btn" onclick="toggleGallery(this)">
-							📸 查看專案活動照片 (3)
-						</button>
-
-						<div class="gallery-wrapper">
-    
-					</div>
 					</ul>
                 </div>
             </div>
@@ -806,41 +798,14 @@
     // 啟動輪播
     startSlideshows();
 
-		// --- PPT 開關功能 ---
-    function togglePPT(btn) {
-        // 1. 找到這顆按鈕所在的群組
-        var group = btn.parentElement;
-        // 2. 找到整個 wrapper
-        var wrapper = group.parentElement;
-        // 3. 在 wrapper 裡面找到 .ppt-content
-        var content = wrapper.querySelector('.ppt-content');
-        
-        // 4. 如果你想讓「開 PPT 時自動關照片」，可以加這段 (選用)
-        // var galleryContent = wrapper.querySelector('.gallery-content');
-        // if(galleryContent.style.maxHeight) { 
-        //     galleryContent.style.maxHeight = null; 
-        //     wrapper.querySelector('.toggle-gallery-btn').innerHTML = "📸 查看專案照片";
-        // }
-
-        // 5. 開關邏輯
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            btn.innerHTML = "📊 查看專案簡報 (PPT)";
-            btn.style.backgroundColor = "transparent";
-            btn.style.color = "#E76F51";
-        } else {
-            // 設定一個足夠大的高度，確保 PPT 能完整顯示
-            content.style.maxHeight = "600px"; 
-            btn.innerHTML = "🔼 收起簡報";
-            btn.style.backgroundColor = "#E76F51";
-            btn.style.color = "white";
-        }
+		
     }
 </script>
 
 </body>
 
 </html>
+
 
 
 
