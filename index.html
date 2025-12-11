@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👩‍💼</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👩‍💼</text></svg>">
     <style>
         :root {
             --primary-color: #2A9D8F; /* 專業青 */
@@ -47,20 +47,13 @@
             margin-bottom: 0.5rem;
             letter-spacing: 2px;
         }
-		
-		/* --- 專門設定英文名字的字體 --- */
-.english-name {
-    /* 使用妳指定的字體系列 */
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    
-    /* 因為手寫字通常看起來比較小，我們可以稍微放大一點點 (選擇性) */
-    font-size: 0.9em; 
-    
-    /* 稍微拉開一點與中文的距離 */
-    margin-left: 10px;
-    
-    /* (選擇性) 如果想讓英文顏色不一樣，也可以在這裡加 color: ... */
-}
+        
+        /* --- 專門設定英文名字的字體 --- */
+        .english-name {
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            font-size: 0.9em; 
+            margin-left: 10px;
+        }
 
         header h2 {
             font-size: 1.5rem;
@@ -69,33 +62,23 @@
             margin-bottom: 1.5rem;
         }
 
-        /* 1. 先定義心跳動畫：緩慢的放大再縮小 */
-		@keyframes heartbeat {
-			0% { transform: scale(1); }      /* 原始大小 */
-			50% { transform: scale(1.08); }  /* 變大 8% (最凸顯的時候) */
-			100% { transform: scale(1); }    /* 回復原始大小 */
-		}
+        /* 1. 先定義心跳動畫 */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
 
-		.tag {
-			/* --- 原本的樣式保持不變 --- */
-			background: rgba(255,255,255,0.2);
-			padding: 4px 12px;
-			border-radius: 50px;
-			font-size: 0.85rem;
-			backdrop-filter: blur(5px);
-			margin: 0 2px; /* 增加一點左右間距，避免放大時撞在一起 */
-			
-			/* --- 新增：心跳脈動效果 --- */
-			display: inline-block; /* 關鍵：一定要設為 block 或 inline-block，變形才會生效 */
-			
-			/* 動畫設定：
-			   heartbeat = 動畫名稱
-			   3s = 持續 3 秒 (調大會更慢，調小會更快)
-			   infinite = 無限循環
-			   ease-in-out = 起步慢、中間快、結尾慢 (看起來最自然)
-			*/
-			animation: heartbeat 3s infinite ease-in-out;
-		}
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(5px);
+            margin: 0 2px;
+            display: inline-block;
+            animation: heartbeat 3s infinite ease-in-out;
+        }
 
         /* Container */
         .container {
@@ -109,59 +92,43 @@
             margin-bottom: 4rem;
         }
 
-        /* 刪除原本的 .section-title 設定，換成下面這一段 */
-		.section-title {
-			position: relative;
-			display: inline-block;
-			
-			/* 字體設定 */
-			font-size: 1.6rem;
-			font-weight: 700;
-			margin-bottom: 1.5rem;
-			
-			/* 固定內距：確保文字位置固定 */
-			padding: 8px 20px; 
-			
-			/* 初始文字顏色 (深色) */
-			color: var(--secondary-color); 
-    
-			cursor: pointer;
-			z-index: 1; 
-			transition: color 0.3s ease; 
-		}
+        /* Section Title */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding: 8px 20px; 
+            color: var(--secondary-color); 
+            cursor: pointer;
+            z-index: 1; 
+            transition: color 0.3s ease; 
+        }
 
-		/* 背景變身設定 */
-		.section-title::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			
-			width: 5px; /* 初始細線 */
-			
-			/* 背景漸層色 */
-			background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-			
-			z-index: -1; 
-			border-radius: 4px; 
-			
-			transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-		}
+        /* 背景變身設定 */
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 5px; /* 初始細線 */
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            z-index: -1; 
+            border-radius: 4px; 
+            transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-		/* --- 滑鼠移上去的變化 --- */
+        /* --- 滑鼠移上去的變化 --- */
+        .section-title:hover {
+            color: #FAF9F6; 
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
 
-		.section-title:hover {
-			/* 這裡改成更有質感的「珍珠米白」 */
-			color: #FAF9F6; 
-			
-			/* 加一點點微弱的陰影，讓文字在深色背景上更立體、更精緻 */
-			text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-		}
-
-		.section-title:hover::before {
-			width: 100%; /* 背景填滿 */
-		}
+        .section-title:hover::before {
+            width: 100%; 
+        }
 
         /* About Me */
         .intro-box {
@@ -224,7 +191,7 @@
         }
 
         .achievements {
-            background: #f0fdfa; /* Very light teal */
+            background: #f0fdfa;
             padding: 1.5rem;
             border-radius: 8px;
             margin-top: 1rem;
@@ -258,7 +225,7 @@
 
         .highlight-number {
             font-weight: bold;
-            color: #E76F51; /* Highlight Orange */
+            color: #E76F51;
         }
 
         /* Skills Grid */
@@ -273,6 +240,9 @@
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: var(--card-shadow);
+            border: 1px solid #eee; 
+            position: relative; 
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
 
         .skill-title {
@@ -287,6 +257,31 @@
         .skill-desc {
             font-size: 0.95rem;
             color: var(--text-gray);
+        }
+        
+        /* 星星的設定 */
+        .skill-box::after {
+            content: '✨';
+            position: absolute;
+            top: 5px;
+            right: 12px;
+            font-size: 2.3rem;
+            opacity: 0;
+            transform: translateY(10px) scale(0.5);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+
+        /* 滑鼠移上去的互動 */
+        .skill-box:hover {
+            border-color: var(--primary-color); 
+            box-shadow: 0 10px 25px rgba(42, 157, 143, 0.15);
+            transform: translateY(-5px); /* 這裡原本有錯誤，已經修正 */
+        }
+
+        .skill-box:hover::after {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
         /* Education */
@@ -329,178 +324,110 @@
             .date { margin-top: 5px; }
             .edu-item { flex-direction: column; }
         }
-		
-		/* --- 專長區塊滑鼠互動特效 --- */
+        
+        /* --- 回到頂部按鈕樣式 --- */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px; /* 手機版通常靠右一點比較好看，這裡稍微修整 */
+            z-index: 99;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #E0E0E0;
+            color: var(--secondary-color);
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+        }
 
-		/* --- 專長區塊完整設定 (含星星與邊框特效) --- */
+        #backToTopBtn:hover {
+            background-color: #D0D0D0;
+            transform: translateY(0) scale(1.1);
+        }
 
-		.skill-box {
-			background: white;
-			padding: 1.5rem;
-			border-radius: 12px;
-			box-shadow: var(--card-shadow);
-			
-			/* 1. 關鍵修正：預先給它 1px 的邊框，顏色設為淺灰或透明 */
-			border: 1px solid #eee; 
-			
-			/* 2. 這是為了星星定位用的 */
-			position: relative; 
-			
-			/* 3. 加上 border-color 的過渡動畫，這樣變色才會滑順 */
-			transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-		}
+        #backToTopBtn.show-btn {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-		/* 星星的設定 (維持不變) */
-		.skill-box::after {
-			content: '✨';
-			position: absolute;
-			top: 5px;
-			right: 12px;
-			font-size: 2.3rem;
-			opacity: 0;
-			transform: translateY(10px) scale(0.5);
-			transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-			pointer-events: none;
-		}
+        /* --- 照片集與輪播特效 --- */
+        .gallery-wrapper {
+            margin-top: 1rem;
+            border-top: 1px dashed #eee;
+            padding-top: 1rem;
+        }
 
-		/* --- 滑鼠移上去的互動 --- */
+        .toggle-gallery-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-		.skill-box:hover {
-			/* 4. 這裡現在會生效了，因為原本已經有 1px 的邊框 */
-			border-color: var(--primary-color); 
-			
-			/* 讓陰影也稍微加深一點，更有浮起來的感覺 */
-			box-shadow: 0 10px 25px rgba(42, 157, 143, 0.15);
-			
-			/* (選擇性) 如果想要方塊稍微往上浮一點，可以打開下面這行 */
-			transform: translateY(-5px); */
-		}
+        .toggle-gallery-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
 
-		.skill-box:hover::after {
-			opacity: 1;
-			transform: translateY(0) scale(1);
-		}
-		
-		/* --- 回到頂部按鈕樣式 --- */
-		#backToTopBtn {
-			/* 固定定位：讓它永遠停在螢幕右下角 */
-			position: fixed;
-			bottom: 30px;
-			right: 100px;
-			z-index: 99; /* 確保它浮在最上層，不會被其他內容蓋住 */
-			
-			/* 形狀與顏色 */
-			width: 50px;
-			height: 50px;
-			border-radius: 50%; /* 變成圓形 */
-			background-color: #E0E0E0; /* 淺灰色背景 */
-			color: var(--secondary-color); /* 圖示顏色使用你的深藍主題色 */
-			border: none;
-			box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 加上一點陰影增加立體感 */
-			
-			/* 內容排版 */
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			cursor: pointer;
-			
-			/* 預設隱藏狀態 (重要！) */
-			opacity: 0; /* 透明度為 0 */
-			visibility: hidden; /* 隱藏元素 */
-			transform: translateY(20px); /* 初始位置稍微往下沉一點 */
-			
-			/* 動畫過渡效果：讓出現和消失很滑順 */
-			transition: all 0.3s ease-in-out;
-		}
+        .gallery-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            margin-top: 10px;
+        }
 
-		/* 滑鼠移上去的效果 */
-		#backToTopBtn:hover {
-			background-color: #D0D0D0; /* 背景稍微變深一點 */
-			transform: translateY(0) scale(1.1); /* 按鈕稍微放大 */
-		}
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; 
+            background: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-		/* 當 JavaScript 偵測到需要顯示時，會加上這個 class */
-		#backToTopBtn.show-btn {
-			opacity: 1; /* 變不透明 */
-			visibility: visible; /* 顯示 */
-			transform: translateY(0); /* 回到正常位置 */
-		}
-		/* --- 照片集與輪播特效 --- */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
 
-		.gallery-wrapper {
-			margin-top: 1rem;
-			border-top: 1px dashed #eee;
-			padding-top: 1rem;
-		}
-
-		/* 按鈕樣式 */
-		.toggle-gallery-btn {
-			background: transparent;
-			border: 1px solid var(--primary-color);
-			color: var(--primary-color);
-			padding: 8px 20px;
-			border-radius: 50px;
-			cursor: pointer;
-			font-size: 0.9rem;
-			font-weight: 500;
-			transition: all 0.3s;
-			display: flex;
-			align-items: center;
-			gap: 5px;
-		}
-
-		.toggle-gallery-btn:hover {
-			background: var(--primary-color);
-			color: white;
-		}
-
-		/* 展開後的容器 */
-		.gallery-content {
-			max-height: 0; /* 預設高度為 0 (隱藏) */
-			overflow: hidden; /* 超出範圍藏起來 */
-			transition: max-height 0.5s ease-out; /* 展開動畫 */
-			margin-top: 10px;
-		}
-
-		/* 輪播區塊 */
-		.slideshow-container {
-			position: relative;
-			width: 100%;
-			/* 設定長寬比，這裡設為 16:9 的高度 */
-			height: 0;
-			padding-bottom: 56.25%; 
-			background: #f0f0f0;
-			border-radius: 8px;
-			overflow: hidden;
-		}
-
-		/* 圖片通用設定 */
-		.slide {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover; /* 讓圖片填滿但不變形 */
-			opacity: 0; /* 預設透明 */
-			transition: opacity 1s ease-in-out; /* 淡入淡出時間 */
-		}
-
-		/* 顯示中的圖片 */
-		.slide.active {
-			opacity: 1; /* 不透明 (顯示) */
-		}
+        .slide.active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>
-		巫巧如 
-			<span class="english-name">Kelly Wu</span>
-		</h1>
+        巫巧如 
+            <span class="english-name">Kelly Wu</span>
+        </h1>
         <h2>產品管理師 <br>
-			Product Manager</h2>
+            Product Manager</h2>
         <div class="tags">
             <span class="tag">#供應鏈優化</span>
             <span class="tag">#專案管理</span>
@@ -510,9 +437,8 @@
         </div>
         <p style="margin-top: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9;">
             具備「供應鏈實務視野」與「數據驅動思維」<br>
-			擅長解決生產異常與庫存難題的實戰型 PM
+            擅長解決生產異常與庫存難題的實戰型 PM
         </p>
-		
     </header>
 
     <div class="container">
@@ -548,10 +474,7 @@
                         <li><strong>清理長期滯留庫存：</strong>與團隊合作，於 <span class="highlight-number">6週內</span> 成功消化 <span class="highlight-number">64台</span> 積壓已久的 RMA 待修機台。</li>
                         <li><strong>快速解決問題：</strong>運用系統知識，平均 <span class="highlight-number">10分鐘內</span> 即可排除產線遇到的異常問題。</li>
                         <li><strong>掌握端對端營運：</strong>支援遷廠物料盤點，精通 SAP 操作，掌握從組裝到出貨的完整流程。</li>
-					   
-
-    
-					</ul>
+                    </ul>
                 </div>
             </div>
 
@@ -569,22 +492,22 @@
                         <li><strong>大型專案統籌：</strong>管理「數位服務據點」專案，與 <span class="highlight-number">81位</span> 據點成員協作，達成 <span class="highlight-number">100%</span> 結案率。</li>
                         <li><strong>高滿意度：</strong>活動滿意度高達 <span class="highlight-number">97%</span>，並製作 5 份數據分析報告供決策使用。</li>
                         <li><strong>溝通協調：</strong>執行 13 場訪視活動，並成功透過法務協作解決合約歧異。</li>
-						<div class="gallery-wrapper">
-						<button class="toggle-gallery-btn" onclick="toggleGallery(this)">
-							📸 點我看照片
-						</button>
+                        <div class="gallery-wrapper">
+                        <button class="toggle-gallery-btn" onclick="toggleGallery(this)">
+                            📸 點我看照片
+                        </button>
 
-						<div class="gallery-content">
-							<div class="slideshow-container">
-								<img src="https://via.placeholder.com/800x450/264653/FFFFFF?text=Project+Photo+1" class="slide active">
-								
-								<img src="https://via.placeholder.com/800x450/2A9D8F/FFFFFF?text=Project+Photo+2" class="slide">
-								
-								<img src="https://via.placeholder.com/800x450/E9C46A/333333?text=Project+Photo+3" class="slide">
-							</div>
-						</div>
-					</div>
-					</ul>
+                        <div class="gallery-content">
+                            <div class="slideshow-container">
+                                <img src="https://via.placeholder.com/800x450/264653/FFFFFF?text=Project+Photo+1" class="slide active">
+                                
+                                <img src="https://via.placeholder.com/800x450/2A9D8F/FFFFFF?text=Project+Photo+2" class="slide">
+                                
+                                <img src="https://via.placeholder.com/800x450/E9C46A/333333?text=Project+Photo+3" class="slide">
+                            </div>
+                        </div>
+                    </div>
+                    </ul>
                 </div>
             </div>
 
@@ -602,7 +525,7 @@
                         <li><strong>產品策略：</strong>設計產業鏈資料庫平台核心功能，實際被公司參考並應用於改版。</li>
                         <li><strong>商業價值：</strong>建立的資料庫隨即售出，為公司創造約 <span class="highlight-number">11萬元</span> 獲利。</li>
                         <li><strong>獲獎肯定：</strong>於數位之星決賽中獲得特優獎等 4 項殊榮。</li>
-						<div class="gallery-wrapper">
+                        <div class="gallery-wrapper">
     <button class="toggle-gallery-btn" onclick="toggleGallery(this)">
         📸 點我看照片
     </button>
@@ -672,15 +595,15 @@
         <a href="mailto:a6211252000a@gmail.com" class="btn">發送郵件聯繫我</a>
         <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.5;">© 2025 Wu Chiao-Ju. All Rights Reserved.</p>
     </footer>
-	
-	<button id="backToTopBtn" title="回到頂部">
+    
+    <button id="backToTopBtn" title="回到頂部">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 15l-6-6-6 6"/>
     </svg>
-	
-	</button>
-	
-	<script>
+    
+    </button>
+    
+    <script>
     // 1. 抓取網頁上的元素
     const backToTopBtn = document.getElementById("backToTopBtn");
     const headerSection = document.querySelector("header");
@@ -695,7 +618,6 @@
         let headerHeight = headerSection.offsetHeight;
 
         // 判斷：如果目前的捲動高度 > Header 的高度
-        // (document.body.scrollTop 是為了兼容 Safari, document.documentElement.scrollTop 是為了 Chrome/Firefox/IE)
         if (document.body.scrollTop > headerHeight || document.documentElement.scrollTop > headerHeight) {
             // 如果滑超過了，加上顯示的 class
             backToTopBtn.classList.add("show-btn");
@@ -710,52 +632,41 @@
         // 平滑滾動到頁面最上方
         window.scrollTo({
             top: 0,
-            behavior: "smooth" // 關鍵：讓它慢慢滑上去，而不是瞬間跳轉
+            behavior: "smooth"
         });
     });
-	
-	// --- 照片集功能 ---
+    
+    // --- 照片集功能 ---
 
     // 1. 收合/展開功能
     function toggleGallery(btn) {
-        // 找到按鈕隔壁的 gallery-content
         var content = btn.nextElementSibling;
         
         if (content.style.maxHeight) {
-            // 如果已經展開，就收起來
             content.style.maxHeight = null;
-            btn.innerHTML = "📸 查看專案活動照片"; // 改回原本文字
+            btn.innerHTML = "📸 查看專案活動照片"; 
         } else {
-            // 如果是收起的，就展開
             content.style.maxHeight = content.scrollHeight + "px";
-            btn.innerHTML = "🔼 收起照片"; // 改變文字提示
+            btn.innerHTML = "🔼 收起照片"; 
         }
     }
 
     // 2. 自動輪播功能
     function startSlideshows() {
-        // 抓出所有有輪播功能的區塊
         let containers = document.querySelectorAll('.slideshow-container');
         
         containers.forEach(container => {
             let slides = container.querySelectorAll('.slide');
             let currentIndex = 0;
             
-            // 每 3 秒換一張圖
             setInterval(() => {
-                // 把目前這張藏起來
                 slides[currentIndex].classList.remove('active');
-                
-                // 計算下一張是誰 (如果是最後一張，就回到第一張)
                 currentIndex = (currentIndex + 1) % slides.length;
-                
-                // 把下一張顯示出來
                 slides[currentIndex].classList.add('active');
-            }, 3000); // 3000 毫秒 = 3 秒
+            }, 3000); 
         });
     }
 
-    // 啟動輪播
     startSlideshows();
 </script>
 
